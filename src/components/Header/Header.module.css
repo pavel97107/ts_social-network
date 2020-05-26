@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    grid-column: 1 / 4;
+    background: #A52A2A
+;
+}
+
+.boxLogo {
+    height: 50px;
+    width: 50px;
+}
+
+img {
+    height: inherit;
+    width: inherit;
+}
