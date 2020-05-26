@@ -1,0 +1,84 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItems {
+    padding: 10px;
+    border-right: 1px solid black;
+}
+
+.dialog a {
+    text-decoration: none;
+    color: green;
+}
+.messages {
+    padding: 10px;
+}
+
+.message {
+    padding: 10px;
+    margin-top: 2px;
+    background-color: #839FD2;
+}
+
+.message:active {
+
+}
+
+.addDataMessage {
+    margin-left: 10px;
+}
+
+.addBtn {
+    width: 100px;
+    height: 30px;
+    background-color: #B664D9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    outline: none;
+}
+.addBtn:hover {
+    background-color: #B25CD6;
+    color: gold;
+}
+
+.addBtn:active {
+    background-color: #9D43C4;
+    color: #E0DAAD;
+}
+
+.contentMessages {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    padding: 5px;
+    background-color: #C2DDF2;
+}
+
+.messageItems {
+    overflow: auto;
+}
+
+.textForm {
+    margin-top: 5px;
+    width: 500px;
+    max-height: 36px;
+    resize: none;
+    padding: 3px 0 0 3px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: #DFD3FF;
+    font-size: 18px;
+}
+
+.textForm:focus {
+    height: auto;
+    overflow: auto;
+}

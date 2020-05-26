@@ -1,0 +1,17 @@
+.containerInfo {
+    display: flex;
+}
+
+.boxProfileInfo {
+    background: #E0DAAD;
+}
+.itemData {
+    font-weight: 500;
+}
+.boxInfo {
+    margin-left: 20px;
+}
+.itemResponseData {
+    display: inline-block;
+    margin-left: 10px;
+}

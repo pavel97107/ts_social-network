@@ -1,0 +1,40 @@
+.containerMyPosts {
+    margin-top: 30px;
+}
+.postFormContainer {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #918E90;
+}
+
+.textForm {
+    width: 450px;
+    height: 70px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    background: #E2E3D3;
+}
+.btnAdd {
+    width: 100px;
+    height: 30px;
+    background-color: #B664D9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    outline: none;
+}
+.btnAdd:hover {
+    background-color: #B25CD6;
+    color: gold;
+}
+
+.btnAdd:active {
+    background-color: #9D43C4;
+    color: #E0DAAD;
+}
+.boxPosts {
+    margin-top: 15px;
+}
+

@@ -1,3 +1,27 @@
 .NavBar {
     background: #FFC0CB;
 }
+
+.boxNavLink {
+    color: black;
+    overflow: hidden;
+}
+
+.boxNavLink:hover {
+    background: deeppink;
+}
+.nav_link {
+    text-decoration: none;
+    color: black;
+}
+
+.text_link {
+    padding-left: 10px;
+    display: block;
+    line-height: 27px;
+}
+
+.activeLink {
+    color: blue;
+    font-weight: 500;
+}
