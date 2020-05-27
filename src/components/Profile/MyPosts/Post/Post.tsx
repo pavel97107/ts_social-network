@@ -2,7 +2,13 @@ import React from "react";
 import s from "./Post.module.css";
 
 
-const Post = () => {
+type typePropsPost = {
+    message: string,
+    like: number
+    key?: number
+}
+
+const Post = (props: typePropsPost) => {
     return <div className={s.itemPost}>
         <div className={s.postHeader}>
             <div className={s.boxImage}><img
@@ -15,8 +21,8 @@ const Post = () => {
 
         </div>
         <div className={s.postContent}>
-            <div className={s.boxMessage}>Hello</div>
-            <div className={s.boxLike}><span>Likes</span><span> 0</span></div>
+            <div className={s.boxMessage}>{props.message}</div>
+            <div className={s.boxLike}><span>Likes</span><span>{props.like}</span></div>
         </div>
 
     </div>
