@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './DialogsUser.module.css';
 
-const DialogsUser = () => {
-    return <div>Name Pavel</div>;
+const DialogsUser = (props: any) => {
+    return <div>{props.name}</div>;
 }
 
 export default DialogsUser;

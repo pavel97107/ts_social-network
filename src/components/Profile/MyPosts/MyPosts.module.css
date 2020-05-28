@@ -38,3 +38,7 @@
     margin-top: 15px;
 }
 
+.itemPost {
+    display: flex;
+    flex-direction: column-reverse;
+}

@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import NavBar from "./components/Navbar/Navbar";
 import {Route} from "react-router-dom";
 import Profile from "./components/Profile/Profile";
-import Dialogs from "./components/Messages/Dialogs";
+import DialogsContainer from "./components/Messages/Dialogs.Container";
 function App() {
   return (
     <div className="wrapper">
@@ -16,7 +16,7 @@ function App() {
           <Route path={'/Settings'} render={() => <div>News</div>}/>
           <Route path={'/Music'} render={() => <div>News</div>}/>
           <Route path={'/Users'} render={() => <div>News</div>}/>
-          <Route path={'/Message'} render={() => <Dialogs/>}/>
+          <Route path={'/Message'} render={() => <DialogsContainer />}/>
       </div>
     </div>
   );

@@ -1,22 +1,35 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import Post from "./Post/Post";
 import s from "./MyPosts.module.css";
+import {elementsArrayPosts} from "../../../redux/profileReducer";
 
 
-const MyPosts = (props: any) => {
-debugger;
-    let postsItems = props.profilePage.posts.map((el: any) => {
+type MapStatePropsType = {
+    posts: Array<elementsArrayPosts>
+    valueTextArea: string
+}
+type MapDispatchPropsType = {
+    addPostAC: ()=> void
+    changeValueAC: (text: string) => void
+}
+type PropsType =  MapStatePropsType & MapDispatchPropsType
+
+
+
+const MyPosts = (props: PropsType) => {
+
+    let postsItems = props.posts.map((el) => {
         return <Post message={el.message} like={el.likeCount} key={el.id}/>
     })
 
-   const changeValue = (event: any) => {
-      let text = event.target.value
-       props.changeValue(text)
-   }
+    const changeValue = (event: ChangeEvent<HTMLTextAreaElement>) => {
+        let text = event.target.value
+        props.changeValueAC(text)
+    }
 
-   const sendPost = () => {
-       props.addPost()
-   }
+    const sendPost = () => {
+        props.addPostAC()
+    }
 
     return (<div className={s.mainContainer}>
         <div className={s.containerMyPosts}>
@@ -25,12 +38,11 @@ debugger;
                 onChange={changeValue}
                 className={s.textForm}
                 value={props.valueTextArea}
-                name="user_post"
-                id=""
                 placeholder="Message..."
             />
                 <div className={s.boxBtn}>
-                    <button onClick={props.valueTextArea === '' ? undefined : sendPost}  className={s.btnAdd} type="submit">
+                    <button onClick={props.valueTextArea === '' ? undefined : sendPost} className={s.btnAdd}
+                            type="submit">
                         Add post
                     </button>
                 </div>
@@ -41,7 +53,7 @@ debugger;
                 {postsItems}
             </div>
         </div>
-        </div>)
+    </div>)
 
 
 }

@@ -1,24 +1,17 @@
 import React from "react";
 import {connect} from "react-redux";
-import {addPost, changeValue} from "../../../redux/profileReducer";
+import {addPostAC, changeValueAC} from "../../../redux/profileReducer";
 import MyPosts from "./MyPosts";
 
 
 
 let mapStateToProps = (state: any) => {
     return {
-        profilePage: state.profilePage,
+        posts: state.profilePage.posts,
         valueTextArea: state.profilePage.valueTextArea
     }
 }
 
-let mapDispatchToProps = (dispatch: any) => {
-        return {
-            addPost: () => dispatch(addPost()),
-            changeValue: (text: string) => dispatch(changeValue(text))
-            }
-}
-
-let MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
+let MyPostsContainer = connect(mapStateToProps, {addPostAC, changeValueAC})(MyPosts)
 
 export default MyPostsContainer;

@@ -1,35 +1,39 @@
 const ADD_POST: string = 'ADD_POST'
 const CHANGE_VALUE: string = 'CHANGE_VALUE'
 
-type typeAction =  {
+type typeAction = {
     type: string,
     value: string | number
 }
-interface initState   {
-    posts: Array<{id: number, message: string, likeCount: number}>,
+export type elementsArrayPosts = {
+    id: number,
+    message: string, likeCount: number
+}
+
+interface initState {
+    posts: Array<elementsArrayPosts>,
     valueTextArea: string
 }
+
 interface SendMessageAction {
     type: typeof ADD_POST
 }
+
 interface changeValueAction {
     type: typeof CHANGE_VALUE,
     value: string
 }
 
 
-let initialState : initState = {
-    posts: [
-        {id: 1, message: 'string', likeCount: 9}
-        ],
+let initialState: initState = {
+    posts: [],
     valueTextArea: ''
 }
 
-const profileReducer = (state = initialState, action : typeAction) => {
-    debugger;
+const profileReducer = (state = initialState, action: typeAction) => {
     switch (action.type) {
         case ADD_POST: {
-            let newPost : object = {id: 2, message: state.valueTextArea, likeCount: 10}
+            let newPost: object = {id: 2, message: state.valueTextArea, likeCount: 10}
             return {
                 ...state, posts: [...state.posts, newPost], valueTextArea: ''
             }
@@ -45,11 +49,12 @@ const profileReducer = (state = initialState, action : typeAction) => {
     }
 }
 
-export function addPost() : SendMessageAction {
-return {type: ADD_POST}
+export function addPostAC(): SendMessageAction {
+    return {type: ADD_POST}
 }
-export function changeValue(value: string) : changeValueAction {
-return {type: CHANGE_VALUE, value: value}
+
+export function changeValueAC(value: string): changeValueAction {
+    return {type: CHANGE_VALUE, value: value}
 }
 
 export default profileReducer;
