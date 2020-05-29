@@ -4,7 +4,6 @@ import {addPostAC, changeValueAC} from "../../../redux/profileReducer";
 import MyPosts from "./MyPosts";
 
 
-
 let mapStateToProps = (state: any) => {
     return {
         posts: state.profilePage.posts,

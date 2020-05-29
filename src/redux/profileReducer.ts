@@ -1,18 +1,10 @@
 const ADD_POST: string = 'ADD_POST'
 const CHANGE_VALUE: string = 'CHANGE_VALUE'
 
-type typeAction = {
-    type: string,
-    value: string | number
-}
+type typeAction = SendMessageAction & changeValueAction;
 export type elementsArrayPosts = {
     id: number,
     message: string, likeCount: number
-}
-
-interface initState {
-    posts: Array<elementsArrayPosts>,
-    valueTextArea: string
 }
 
 interface SendMessageAction {
@@ -24,13 +16,13 @@ interface changeValueAction {
     value: string
 }
 
-
-let initialState: initState = {
-    posts: [],
-    valueTextArea: ''
+let initialState = {
+    posts: [] as Array<elementsArrayPosts | object>,
+    valueTextArea: '' as string
 }
+export type stateType = typeof initialState;
 
-const profileReducer = (state = initialState, action: typeAction) => {
+const profileReducer = (state: stateType = initialState, action: typeAction): stateType => {
     switch (action.type) {
         case ADD_POST: {
             let newPost: object = {id: 2, message: state.valueTextArea, likeCount: 10}

@@ -14,12 +14,14 @@ const Dialogs = (props: any) => {
     })
 
     let sendMessage = () => {
-        props.sendMessageAC();
+        props.sendMessageAC()
+
     }
 
     let changeValue = (event: any) => {
-        let text =  event.target.value
+        let text = event.target.value
         props.changeValueMessageAC(text)
+
     }
 
     return (

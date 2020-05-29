@@ -1,18 +1,9 @@
 const SEND_MESSAGE: string = 'SEND_MESSAGE'
 const CHANGE_VALUE_MESSAGE: string = 'CHANGE_VALUE_MESSAGE'
 
-type typeAction = {
-    type: string,
-    value: string | number
-}
 type postInPosts = {
     id: number,
     message: string
-}
-type initState = {
-    dialogsData: Array<postInPosts>,
-    messagesData: Array<postInPosts>,
-    valueTextArea: string
 }
 type SendMessageAction  ={
     type: typeof SEND_MESSAGE
@@ -21,14 +12,16 @@ type changeValueAction ={
     type: typeof CHANGE_VALUE_MESSAGE,
     value: string
 }
-
-let initialState: initState = {
-    dialogsData: [],
-    messagesData: [],
-    valueTextArea: ''
+let initialState = {
+    dialogsData: [] as Array<postInPosts>,
+    messagesData: [] as Array<postInPosts>,
+    valueTextArea: '' as string
 }
+type AppStateType = typeof initialState;
+type actionType = SendMessageAction & changeValueAction;
 
-const dialogsReducer = (state = initialState, action: typeAction) => {
+
+const dialogsReducer = (state : AppStateType = initialState, action: actionType) : AppStateType  => {
     switch(action.type) {
         case SEND_MESSAGE: {
             let newMessage = {id: 1, message: state.valueTextArea}
@@ -46,6 +39,7 @@ const dialogsReducer = (state = initialState, action: typeAction) => {
         }
     }
 }
+
 
 export function sendMessageAC(): SendMessageAction {
     return {type: SEND_MESSAGE}

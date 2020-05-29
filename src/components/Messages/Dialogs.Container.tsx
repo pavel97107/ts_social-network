@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import Dialogs from "./Dialogs";
-import  {sendMessageAC,changeValueMessageAC} from '../../redux/dialogsReducer'
+import {changeValueMessageAC, sendMessageAC} from '../../redux/dialogsReducer'
+import {AppStateType} from "../../redux/redux-store";
 
 
 let mapStateToProps = (state: any) => {

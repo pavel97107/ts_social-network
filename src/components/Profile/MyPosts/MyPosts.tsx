@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, {ChangeEvent} from "react";
 import Post from "./Post/Post";
 import s from "./MyPosts.module.css";
 import {elementsArrayPosts} from "../../../redux/profileReducer";
@@ -9,11 +9,10 @@ type MapStatePropsType = {
     valueTextArea: string
 }
 type MapDispatchPropsType = {
-    addPostAC: ()=> void
+    addPostAC: () => void
     changeValueAC: (text: string) => void
 }
-type PropsType =  MapStatePropsType & MapDispatchPropsType
-
+type PropsType = MapStatePropsType & MapDispatchPropsType
 
 
 const MyPosts = (props: PropsType) => {
