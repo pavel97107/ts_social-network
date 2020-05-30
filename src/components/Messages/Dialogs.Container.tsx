@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import Dialogs from "./Dialogs";
-import {changeValueMessageAC, postInPosts, sendMessageAC} from '../../redux/dialogsReducer'
+import {action, postInPosts} from '../../redux/dialogsReducer'
 import {AppStateType} from "../../redux/redux-store";
 
 
@@ -15,7 +15,7 @@ export type MapDispatchToPropsType = {
 
 }
 
-let mapStateToProps = (state: AppStateType) : MapStateToPropsType => {
+let mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
         dialogsData: state.dialogsPage.dialogsData,
         messagesData: state.dialogsPage.messagesData,
@@ -23,7 +23,14 @@ let mapStateToProps = (state: AppStateType) : MapStateToPropsType => {
     }
 }
 
+let mapDispatchToProps = (dispatch : any) : MapDispatchToPropsType => {
+    return {
+        sendMessageAC: () => dispatch(action.sendMessageAC()),
+        changeValueMessageAC: (value) => dispatch(action.changeValueMessageAC(value))
+    }
+}
 
-let DialogsContainer = connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {sendMessageAC, changeValueMessageAC})(Dialogs)
 
-export default  DialogsContainer;
+let DialogsContainer = connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(mapStateToProps, mapDispatchToProps)(Dialogs)
+
+export default DialogsContainer;

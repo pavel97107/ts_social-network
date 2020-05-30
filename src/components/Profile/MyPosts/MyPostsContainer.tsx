@@ -1,9 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
-import {addPostAC, changeValueAC, elementsArrayPosts} from "../../../redux/profileReducer";
+import {action, elementsArrayPosts} from "../../../redux/profileReducer";
 import MyPosts from "./MyPosts";
 import {AppStateType} from "../../../redux/redux-store";
-
 
 export type MapStatePropsType = {
     posts: Array<elementsArrayPosts>
@@ -20,7 +19,14 @@ let mapStateToProps = (state: AppStateType) : MapStatePropsType => {
         valueTextArea: state.profilePage.valueTextArea
     }
 }
+let mapDispatchToProps = (dispatch: any) : MapDispatchPropsType => {
+    return {
+        addPostAC: () => dispatch(action.addPostAC()),
+        changeValueAC: (text: string) => dispatch(action.changeValueAC(text))
+    }
+}
 
-let MyPostsContainer = connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType >(mapStateToProps, {addPostAC, changeValueAC})(MyPosts)
+
+let MyPostsContainer = connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType >(mapStateToProps, mapDispatchToProps)(MyPosts)
 
 export default MyPostsContainer;
