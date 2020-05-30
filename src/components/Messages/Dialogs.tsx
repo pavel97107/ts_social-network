@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import s from './Dialogs.module.css';
 import DialogsUser from "./DialogsUser/DialogsUser";
 import Message from "./MessageItem/Message";
+import {MapDispatchToPropsType, MapStateToPropsType} from "./Dialogs.Container";
 
-const Dialogs = (props: any) => {
+type PropsType = MapDispatchToPropsType & MapStateToPropsType;
 
-    let itemMessage = props.messagesData.map((el: any) => {
+
+const Dialogs = (props: PropsType) => {
+
+    let itemMessage = props.messagesData.map((el) => {
         return <Message message={el.message} key={el.id}/>
     })
 
@@ -18,7 +22,7 @@ const Dialogs = (props: any) => {
 
     }
 
-    let changeValue = (event: any) => {
+    let changeValue = (event: ChangeEvent<HTMLTextAreaElement>) => {
         let text = event.target.value
         props.changeValueMessageAC(text)
 

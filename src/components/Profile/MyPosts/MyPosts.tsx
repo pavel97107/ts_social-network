@@ -1,17 +1,9 @@
 import React, {ChangeEvent} from "react";
 import Post from "./Post/Post";
 import s from "./MyPosts.module.css";
-import {elementsArrayPosts} from "../../../redux/profileReducer";
+import {MapDispatchPropsType, MapStatePropsType} from "./MyPostsContainer";
 
 
-type MapStatePropsType = {
-    posts: Array<elementsArrayPosts>
-    valueTextArea: string
-}
-type MapDispatchPropsType = {
-    addPostAC: () => void
-    changeValueAC: (text: string) => void
-}
 type PropsType = MapStatePropsType & MapDispatchPropsType
 
 

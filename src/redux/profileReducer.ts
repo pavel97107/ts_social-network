@@ -6,18 +6,15 @@ export type elementsArrayPosts = {
     id: number,
     message: string, likeCount: number
 }
-
 interface SendMessageAction {
     type: typeof ADD_POST
 }
-
 interface changeValueAction {
     type: typeof CHANGE_VALUE,
     value: string
 }
-
 let initialState = {
-    posts: [] as Array<elementsArrayPosts | object>,
+    posts: [] as Array<elementsArrayPosts>,
     valueTextArea: '' as string
 }
 export type stateType = typeof initialState;
@@ -25,7 +22,7 @@ export type stateType = typeof initialState;
 const profileReducer = (state: stateType = initialState, action: typeAction): stateType => {
     switch (action.type) {
         case ADD_POST: {
-            let newPost: object = {id: 2, message: state.valueTextArea, likeCount: 10}
+            let newPost: elementsArrayPosts = {id: 2, message: state.valueTextArea, likeCount: 10}
             return {
                 ...state, posts: [...state.posts, newPost], valueTextArea: ''
             }

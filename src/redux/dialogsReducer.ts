@@ -1,30 +1,23 @@
 const SEND_MESSAGE: string = 'SEND_MESSAGE'
 const CHANGE_VALUE_MESSAGE: string = 'CHANGE_VALUE_MESSAGE'
 
-type postInPosts = {
+export type postInPosts = {
     id: number,
     message: string
-}
-type SendMessageAction  ={
-    type: typeof SEND_MESSAGE
-}
-type changeValueAction ={
-    type: typeof CHANGE_VALUE_MESSAGE,
-    value: string
 }
 let initialState = {
     dialogsData: [] as Array<postInPosts>,
     messagesData: [] as Array<postInPosts>,
     valueTextArea: '' as string
 }
-type AppStateType = typeof initialState;
-type actionType = SendMessageAction & changeValueAction;
+export type stateType = typeof initialState;
+type actionType = ReturnType<typeof sendMessageAC> & ReturnType<typeof changeValueMessageAC>;
 
 
-const dialogsReducer = (state : AppStateType = initialState, action: actionType) : AppStateType  => {
-    switch(action.type) {
+const dialogsReducer = (state: stateType = initialState, action: actionType): stateType => {
+    switch (action.type) {
         case SEND_MESSAGE: {
-            let newMessage = {id: 1, message: state.valueTextArea}
+            let newMessage: postInPosts = {id: 1, message: state.valueTextArea}
             return {
                 ...state, messagesData: [...state.messagesData, newMessage], valueTextArea: ''
             }
@@ -41,12 +34,16 @@ const dialogsReducer = (state : AppStateType = initialState, action: actionType)
 }
 
 
-export function sendMessageAC(): SendMessageAction {
-    return {type: SEND_MESSAGE}
+function inferLiteralFromString<T extends string>(arg: T): T {
+    return arg
 }
 
-export function changeValueMessageAC(value: string): changeValueAction {
-    return {type: CHANGE_VALUE_MESSAGE, value: value}
-}
+
+export const sendMessageAC = () => ({type: inferLiteralFromString('SEND_MESSAGE')})
+export const changeValueMessageAC = (value: string) => ({
+    type: inferLiteralFromString('CHANGE_VALUE_MESSAGE'),
+    value: value
+})
+
 
 export default dialogsReducer;
