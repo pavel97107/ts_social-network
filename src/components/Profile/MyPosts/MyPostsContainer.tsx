@@ -13,13 +13,13 @@ export type MapDispatchPropsType = {
     changeValueAC: (text: string) => void
 }
 
-let mapStateToProps = (state: AppStateType) : MapStatePropsType => {
+let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         posts: state.profilePage.posts,
         valueTextArea: state.profilePage.valueTextArea
     }
 }
-let mapDispatchToProps = (dispatch: any) : MapDispatchPropsType => {
+let mapDispatchToProps = (dispatch: any): MapDispatchPropsType => {
     return {
         addPostAC: () => dispatch(action.addPostAC()),
         changeValueAC: (text: string) => dispatch(action.changeValueAC(text))
@@ -27,6 +27,6 @@ let mapDispatchToProps = (dispatch: any) : MapDispatchPropsType => {
 }
 
 
-let MyPostsContainer = connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType >(mapStateToProps, mapDispatchToProps)(MyPosts)
+let MyPostsContainer = connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(mapStateToProps, mapDispatchToProps)(MyPosts)
 
 export default MyPostsContainer;
