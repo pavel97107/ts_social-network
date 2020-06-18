@@ -4,6 +4,7 @@ import {action, itemsType} from "../../redux/usersReducer";
 import {connect} from "react-redux";
 import Users from "./Users";
 
+
 export type mapStateToPropsType = {
     users: Array<itemsType>
 }
@@ -19,7 +20,7 @@ let mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     }
 }
 
-let mapDispatchToProps = (dispatch: any): mapDispatchToPropsType => {
+let mapDispatchToProps = (dispatch : any): mapDispatchToPropsType => {
     return {
         follow: (userId) => dispatch(action.follow(userId)),
         unFollow: (userId) => dispatch(action.unFollow(userId)),

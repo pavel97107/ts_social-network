@@ -1,10 +1,10 @@
-type photosType = { small: string | null, large: string | null }
+type photosType = { small: string, large: string | null  }
 export type itemsType = { name: string, id: number, photos: photosType, status: null | string, followed: boolean }
 let initialState = {
     users: [{
         name: "Shubert",
         id: 1,
-        photos: {small: null, "large": null},
+        photos: {small: 'https://sun1.beltelecom-by-minsk.userapi.com/EwH4fyD1J_VJ_BpG7bUunbW_DDQcxvSgqsPbLA/Bdg1d4ZjjVk.jpg', large: null},
         status: null,
         followed: false
     }] as Array<itemsType>,
